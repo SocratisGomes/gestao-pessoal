@@ -1,0 +1,53 @@
+table {
+    max-width: 850px;
+    margin: 0 auto;
+  }
+  
+  .col1 {
+    min-width: 10rem;
+  }
+  .col2 {
+    min-width: 8rem;
+  }
+  .col3 {
+    min-width: 6rem;
+  }
+  
+  .modal label {
+    width: 5.5rem;
+    display: inline-block;
+  }
+  
+  #campoDescricao,
+  #campoDescricao2 {
+    width: 18rem;
+  }
+  
+  #areaFiltro {
+    max-width: 850px;
+    margin: 0 auto;
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  #areaFiltro * {
+    margin-right: 1em;
+  }
+  
+  #filtro {
+    flex: 1;
+  }
+  
+  #areaGrafico {
+    max-width: 850px;
+    margin: 0 auto;
+    height: 250px;
+  }
+  
+  #areaGrafico h3 {
+    margin-top: 2em;
+    margin-bottom: 0;
+  }
+  

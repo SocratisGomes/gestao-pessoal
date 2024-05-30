@@ -1,3 +1,10 @@
+:root{
+    --var: #ddd;
+    --var: #228;
+    --var: #000;
+}
+
+
 *{
     border: none;
     padding: 0px;
@@ -5,21 +12,44 @@
     box-sizing: border-box;
     overflow: hidden;
     font-family: "Roboto", "Arial", sans-serif; 
-    /* overflow: scroll; */
-    
+    /* overflow: scroll; */    
 }
 
 body{
-    background-color:#ddd;
-    
+    background-color:#ddd;    
+   
 }
 
 .cabecalho{
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
+    /* flex-direction: row; */
     background-color: #ddd;
     padding: 30px;
+}
+
+.relogio{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    /* align-items: center; */
+    flex-direction: left;
+}
+
+.relogio span{
+    display: flex;
+    align-items: center;
+    /* gap 50px; */
+    font-size: 40px;
+    font-weight: bold;
+    color:#228
+}
+
+.relogio span:not(:last-child)::after{
+    content: ':';
+    margin: 15px;
+    color:#228
 }
 
 .menu{
@@ -38,11 +68,12 @@ body{
     background-color: #fff;
     width: 100%;
     height: 100vh;  
-    margin: 0px 0px 0px 50px;   
-    
+    margin: 0px 0px 0px 50px;       
 }
 
 .aba{
+    display: flex;
+    justify-content: center;
     background-color: #228;
     color: #fff; 
     text-transform: uppercase; /*gerar texto todo em maíusculo */
@@ -52,6 +83,7 @@ body{
     width: 120px;
     cursor: pointer;
     font-weight: bold;
+    
 }
 
 .aba:hover{
@@ -79,9 +111,7 @@ body{
     background-color: #fff;
     width: 100%;
     height: 100%;
-    overflow-x: hidden;
- 
-   
+    overflow-x: hidden;   
     /* border: 1px solid red; */
 }
 

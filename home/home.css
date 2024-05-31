@@ -1,0 +1,81 @@
+.gridSuperior{
+   display: grid;
+   grid-template-columns: 100%;
+   grid-template-rows: 100px 250px;
+   grid-template-areas: 'titulo'
+                        'graficoDiario graficoDiario graficoDiario';                        
+   gap: 10px;
+}
+.gridInferior{
+   display: grid;
+   grid-template-columns: 33%;
+   grid-template-rows: 250px;
+   grid-template-areas: 'notificacoes calendario graficoPizza';
+   gap: 10px;
+}
+.titulo {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: red;
+   color: white;
+}
+.graficoDiario {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color:blue;
+   color: white;
+}
+.notificacoe{
+   display: inline-block;
+   justify-content: center;
+   align-items: center;   
+   background-color:black;   
+   color: #fff;
+   
+}
+.calendario{
+   justify-content: center;
+   align-items: center;
+   background-color:lawngreen;
+}
+.graficoPizza{
+   justify-content: center;
+   align-items: center;
+   background-color: yellow;
+}
+.imgHome{
+   width: 200px;
+   height: 100px;
+} 
+
+.relogio{
+   display: flex;
+   flex-wrap: wrap;
+   /* justify-content: center; */
+   align-items: center;
+   flex-direction: left;
+   background-color: #228;
+   padding: 0px 20px;
+   border-radius: 10px 10px;
+   width: 140px;
+   /* height: 50px; */
+}
+
+.relogio span{
+   /* margin: 0px 10px 0px 10px; */
+   display: flex;
+   align-items: center;
+   /* gap 50px; */
+   font-size: 20px;
+   font-weight: bold;
+   color: #fff;
+   height: 40px;
+}
+
+.relogio span:not(:last-child)::after{
+   content: ':';
+   margin: 15px;
+   color: #fff;
+}

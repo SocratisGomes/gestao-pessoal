@@ -1,4 +1,4 @@
-// Cria o gráfico de tarefas por prioridade
+/// Cria o gráfico de tarefas por prioridade
 let dadosGrafico = [0, 0, 0];
 let seriesGrafico = {
   labels: ["Alta", "Média", "Baixa"],
@@ -23,11 +23,36 @@ let chart = new Chart(grafico, {
   },
 });
 
+//Inicia o banco de tarefas existentes no LocalStorage
+function IniciaBanco(){
+  BancoTarefas = JSON.parse(localStorage.getItem('tarefas'))
+  let conteudo = "";
+  BancoTarefas.forEach((item) => {
+    conteudo += `
+      <tr id='linha-${item.id}'>
+        <td class='selecao'>
+          <input type="radio" name="campoSelecao" value="${item.id}" />
+        </td>
+        <td class="celula-1">
+          ${item.descricao}
+        </td>
+        <td class="celula-2"> 
+          ${formataData(item.data)}
+        </td>
+        <td class="celula-3">
+          ${prioridade(item.prioridade)}
+        </td>
+        <td></td>
+      </tr>
+    `;
+  })
+  corpoTabela.innerHTML = conteudo;
+}
+IniciaBanco();
 
-
-// Desenha a tabela com os dados armazenados no localStorage
+// Desenha a tabela com novas tarefas 
 function mostraTabela() {
-  // carrega dados
+    // carrega dados
   let listaDeTarefas = readTarefas();
   dados = listaDeTarefas.filter(
     (t) =>

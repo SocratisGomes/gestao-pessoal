@@ -22,34 +22,37 @@ body{
 
 .cabecalho{
     display: flex;
-    justify-content: right;
-    align-items: center;
-    /* flex-direction: row; */
-    background-color: #ddd;
-    padding: 30px;
-}
-
-.relogio{
-    display: flex;
-    flex-wrap: wrap;
-    /* justify-content: center; */
+    /* justify-content: space-between; */
     /* align-items: center; */
-    flex-direction: left;
+    flex-direction: row;
+    background-color: #ddd;
+    margin: 50px;
 }
 
-.relogio span{
+
+.logo{
+    background-color: blueviolet;
     display: flex;
-    align-items: center;
-    /* gap 50px; */
-    font-size: 40px;
-    font-weight: bold;
-    color:#228
+    align-items:center;
+    border-radius: 30px;
+    margin-right: 10px;        
+    /* justify-content: space-between; */
+    width: 60px;
+    height: 60px;
 }
 
-.relogio span:not(:last-child)::after{
-    content: ':';
-    margin: 15px;
-    color:#228
+.meuMundo p{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
+    color:#228;
+    margin-right: 400px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
+    width: 130px;
+
 }
 
 .menu{

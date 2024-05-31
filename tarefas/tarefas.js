@@ -2,18 +2,20 @@ content.onload = function () {
   iniciaBanco();
 };
 function iniciaBanco() {
+  // localStorage.setItem("tarefas", JSON.stringify([]));
   let bancoTarefas = JSON.parse(localStorage.getItem("tarefas"));
   let conteudo = "";
   bancoTarefas.map((tarefa) => {
     conteudo += `
-          <tr id='linha-${tarefa.id}'>
-            <td class='selecao'>
-            <input type="radio" name="campoSelecao" value="${tarefa.id}"/></td>
-            <td class="celula-1">${tarefa.descricao}</td>
-            <td class="celula-2">${formataData(tarefa.data)}</td>
-            <td class="celula-3">${prioridade(tarefa.prioridade)}</td>
-            <td></td>
-          </tr>`;
+    <tr id='linha-${tarefa.id}'>
+      <td class='selecao'>
+      <input type="radio" name="campoSelecao" value="${tarefa.id}"/></td>
+      <td class="celula-1">${tarefa.descricao}</td>
+      <td class="celula-2">${formataData(tarefa.data)}</td>
+      <td class="celula-3">${prioridade(tarefa.prioridade)}</td>
+      <td></td>
+    </tr>`;
+    console.log(tarefa.id)
     // modalTarefa.style.display = "none";
     corpoTabela.innerHTML = conteudo;
   });
@@ -63,6 +65,7 @@ btMTCriar.onclick = function () {
   if (bancoTarefas == null) {
     bancoTarefas = [];
   }
+  
   let tarefa = {
     descricao: campoDescricao.value,
     data: campoData.value,
@@ -84,8 +87,6 @@ btMTCriar.onclick = function () {
   modalTarefa.style.display = "none";
   corpoTabela.innerHTML += conteudo;
   localStorage.setItem("tarefas", JSON.stringify(bancoTarefas));
-  //comando abaixo limpa o localStorage
-  // localStorage.setItem("tarefas", JSON.stringify([]));
 };
 
 // funções de apoio para formatar os valores da tabela
@@ -98,3 +99,43 @@ function formataData(d) {
   [ano, mes, dia] = d.split("-");
   return dia + "-" + mes + "-" + ano;
 }
+
+//Mostra popup para exclusão de uma tarefa existente
+btExcluir.onclick = function () {
+  let bancoTarefas = JSON.parse(localStorage.getItem("tarefas"));
+  console.log(bancoTarefas);
+  let selecoes = [...document.querySelectorAll("name=campoSelecao")];
+
+  console.log(selecoes);
+  // let selecoes = document.querySelectorAll('imput[campoSelecao]')
+  let selecionado = selecoes.find((i) => i.checked == true);
+  console.log(selecionado);
+  if (selecionado) {
+    bancoTarefas = selecionado.value;
+    console.log(selecionado.value);
+    campoDescricao.value = tarefa.descricao;
+    console.log(selecionado.value);
+    campoData.value = tarefa.data;
+    campoPrioridade.value = tarefa.prioridade;
+    campoID.value = tarefa.id;
+    campoDescricao.disabled = true;
+    campoData.disabled = true;
+    campoPrioridade.disabled = true;
+    modalTarefa.style.display = "block";
+    btMTCriar.style.display = "none";
+    btMTAlterar.style.display = "none";
+    btMTExcluir.style.display = "inline-block";
+  }
+};
+
+// Confirma a exclusão da tarefa
+btMTExcluir.onclick = function () {
+  deleteTarefa(campoID.value);
+  modalTarefa.style.display = "none";
+  mostraTabela();
+};
+
+// Cancela a criação, alteração ou exclusão da tarefa
+btMTCancelar.onclick = function () {
+  modalTarefa.style.display = "none";
+};

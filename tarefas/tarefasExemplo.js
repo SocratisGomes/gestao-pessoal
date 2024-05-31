@@ -25,6 +25,7 @@ let chart = new Chart(grafico, {
 
 //Inicia o banco de tarefas existentes no LocalStorage
 function IniciaBanco(){
+  // localStorage.setItem("tarefas", JSON.stringify([]));
   BancoTarefas = JSON.parse(localStorage.getItem('tarefas'))
   let conteudo = "";
   BancoTarefas.forEach((item) => {

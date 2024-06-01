@@ -30,7 +30,7 @@
    grid-template-rows: 50px 250px 250px;
    grid-template-areas: 'titulo titulo titulo'
    'graficoDiario graficoDiario graficoDiario'
-   'notificacoe calendario graficoPizza';  
+   'calendario graficoPizza notificacoe';  
    gap: 10px;
 }
 .titulo{
@@ -53,7 +53,8 @@
 }
 .notificacoe{
    grid-area: notificacoe;
-   display: inline-block;
+   display: flex;
+   flex-direction: column;
    justify-content: center;
    align-items: center;   
    color: black;
@@ -62,6 +63,8 @@
 }
 .calendario{
    grid-area: calendario;
+   flex-direction: column;
+   display: flex;
    justify-content: center;
    align-items: center;
    border-radius: 10px;
@@ -69,6 +72,7 @@
 }
 .graficoPizza{
    grid-area: graficoPizza;
+   display: flex;
    justify-content: center;
    align-items: center;
    color: black;
@@ -85,6 +89,7 @@
 } 
 
 .relogio{
+   
    display: flex;
    flex-wrap: wrap;
    /* justify-content: center; */
@@ -98,6 +103,7 @@
 }
 
 .relogio span{
+   
    /* margin: 0px 10px 0px 10px; */
    display: flex;
    align-items: center;

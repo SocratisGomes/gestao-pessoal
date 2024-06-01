@@ -1,4 +1,4 @@
-.gridSuperior{
+/* .gridSuperior{
    display: grid;
    grid-template-columns: 100%;
    grid-template-rows: 100px 250px;
@@ -12,38 +12,72 @@
    grid-template-rows: 250px;
    grid-template-areas: 'notificacoes calendario graficoPizza';
    gap: 10px;
+   
+} */
+
+/* .b{
+   display: grid;
+   grid-template-columns: 250px 250px 250px;
+   grid-template-rows: 100px 250px 250px;
+   grid-template-areas: 'titulo titulo titulo'
+                        'graficoDiario graficoDiario graficoDiario'
+                        'notificacoe calendario graficoPizza';                        
+   gap: 10px;
+} */
+.grid{
+   display: grid;
+   grid-template-columns: 300px 300px 300px ;
+   grid-template-rows: 50px 250px 250px;
+   grid-template-areas: 'titulo titulo titulo'
+   'graficoDiario graficoDiario graficoDiario'
+   'notificacoe calendario graficoPizza';  
+   gap: 10px;
 }
-.titulo {
+.titulo{
+   grid-area: titulo;
+   border-radius: 10px;
    display: flex;
    justify-content: center;
    align-items: center;
-   background-color: red;
-   color: white;
+   border: solid 2px #999;
+   color: black;
 }
-.graficoDiario {
+.graficoDiario{
+   grid-area: graficoDiario;
    display: flex;
    justify-content: center;
    align-items: center;
-   background-color:blue;
-   color: white;
+   border-radius: 10px;
+   border: solid 2px #999;
+   color: black;
 }
 .notificacoe{
+   grid-area: notificacoe;
    display: inline-block;
    justify-content: center;
    align-items: center;   
-   background-color:black;   
-   color: #fff;
-   
+   color: black;
+   border-radius: 10px;
+   border: solid 2px #999;
 }
 .calendario{
+   grid-area: calendario;
    justify-content: center;
    align-items: center;
-   background-color:lawngreen;
+   border-radius: 10px;
+   border: solid 2px #999;   
 }
 .graficoPizza{
+   grid-area: graficoPizza;
    justify-content: center;
    align-items: center;
-   background-color: yellow;
+   color: black;
+   border-radius: 10px;
+   border: solid 2px #999;
+}
+
+.graficoPizza{
+  
 }
 .imgHome{
    width: 200px;

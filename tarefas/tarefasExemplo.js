@@ -49,7 +49,7 @@ function IniciaBanco(){
   })
   corpoTabela.innerHTML = conteudo;
 }
-IniciaBanco();
+
 
 // Desenha a tabela com novas tarefas 
 function mostraTabela() {
@@ -271,4 +271,5 @@ filtro.onkeyup = function () {
 };
 
 // Após preparar todo o código, desenha a versão preliminar da tabela, com dados já existentes
+IniciaBanco();
 mostraTabela();

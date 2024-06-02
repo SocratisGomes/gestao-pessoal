@@ -26,7 +26,8 @@ let chart = new Chart(grafico, {
 //Inicia o banco de tarefas existentes no LocalStorage
 function IniciaBanco(){
   // localStorage.setItem("tarefas", JSON.stringify([]));
-  BancoTarefas = JSON.parse(localStorage.getItem('tarefas'))
+  // JSON.parse(localStorage.getItem('tarefas'))
+  BancoTarefas = readTarefas()
   let conteudo = "";
   BancoTarefas.forEach((item) => {
     conteudo += `
@@ -49,7 +50,7 @@ function IniciaBanco(){
   })
   corpoTabela.innerHTML = conteudo;
 }
-IniciaBanco();
+
 
 // Desenha a tabela com novas tarefas 
 function mostraTabela() {
@@ -271,4 +272,5 @@ filtro.onkeyup = function () {
 };
 
 // Após preparar todo o código, desenha a versão preliminar da tabela, com dados já existentes
+IniciaBanco();
 mostraTabela();

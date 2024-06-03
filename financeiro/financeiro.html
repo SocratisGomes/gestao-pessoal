@@ -1,14 +1,80 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <title>Minhas Tarefas</title>
     <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <script defer="" src="./tarefas.js"></script> -->
+    <script defer="" src="crud_tarefas.js"></script>
+    <script defer="" src="tarefasExemplo.js"></script>    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script defer src="agenda.js"></script>
-    <title>Financeiro</title>
+    <link rel="stylesheet" type="text/css" href="./estilos.css">
+    <link rel="stylesheet" type="text/css" href="./tarefas.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">    
 </head>
-<body>
-  
-<h1>FINANCEIRO</h1>
-    
+<body id="content">  
+<h1>Minhas Contas</h1>
+<div id="areaFiltro">
+    <label for="filtro">Busca:</label>
+    <input id="filtro" type="text">
+    <span id="limpaFiltro">x</span>
+</div>
+<table>
+    <thead>
+      <tr>
+        <th class="selecao"></th>
+        <th id="th1" class="col1">Mês</th>
+        <th id="th2" class="col2">Salário Líq.</th>
+        <th id="th3" class="col3">Pagamentos</th>
+        <th id="th4" class="col3">Trasnferir</th>
+      </tr>
+    </thead>
+    <tbody id="corpoTabela"></tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4">
+          <button id="btAdicionar" class="botao">Adicionar</button>
+          <button id="btEditar" class="botao">Editar</button>
+          <button id="btExcluir" class="botao">Excluir</button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+  <div id="areaGrafico">
+    <h3>Tarefas por prioridade</h3>
+    <canvas id="grafico"></canvas>
+  </div>
+  <!-- Mostra os popups -->
+  <div id="modalTarefa" class="modal">
+    <div class="corpoModal">
+      <header>
+        <span id="fechaModal">×</span>
+        <h3>TAREFA</h3>
+      </header>
+      <p>
+        <label for="campoDescricao">Mês: </label>
+        <input type="month" id="campoDescricao">
+        <input type="hidden" id="campoID">
+      </p>
+      <p>
+        <label for="campoData">Salário Líquido: </label>
+        <input type="text" id="campoData">
+      </p>
+      <p>
+        <label for="campoData">Pgtos do Mês: </label>
+        <input type="text" id="campoData">
+      </p>
+      <p>
+        <label for="campoData">Trasferir: </label>
+        <input type="text" id="campoData">
+      </p>
+      <p>
+        <button id="btMTCriar">Criar</button>
+        <button id="btMTAlterar">Alterar</button>
+        <button id="btMTExcluir">Excluir</button>
+        <button id="btMTCancelar">Cancelar</button>
+      </p>
+    </div>
+  </div>
 </body>
+</html

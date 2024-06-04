@@ -17,7 +17,7 @@
    grid-template-columns: 300px 300px 300px ;
    grid-template-rows: 50px 250px 250px;
    grid-template-areas: 'titulo titulo titulo'
-   'graficoDiario graficoDiario graficoDiario'
+   'graficoPrioridades graficoDiario graficoDiario'
    'calendario graficoPizza notificacoe';  
    gap: 10px;
 }
@@ -29,6 +29,15 @@
    align-items: center;
    border: solid 2px #999;
    color: black;
+}
+.graficoPrioridades{
+   grid-area: graficoPrioridades;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: black;
+   border-radius: 10px;
+   border: solid 2px #999;;
 }
 .graficoDiario{
    grid-area: graficoDiario;
@@ -68,9 +77,6 @@
    border: solid 2px #999;
 }
 
-.graficoPizza{
-  
-}
 .imgHome{
    width: 200px;
    height: 100px;

@@ -1,27 +1,27 @@
 /// Cria o gráfico de tarefas por prioridade
-let dadosGrafico = [0, 0, 0];
-let seriesGrafico = {
-  labels: ["Alta", "Média", "Baixa"],
-  datasets: [
-    {
-      label: "Tarefas",
-      data: dadosGrafico,
-      borderWidth: 1,
-    },
-  ],
-};
-let chart = new Chart(grafico, {
-  type: "bar",
-  data: seriesGrafico,
-  options: {
-    y: {
-      beginAtZero: true,
-      ticks: {
-        stepSize: 1,
-      },
-    },
-  },
-});
+// let dadosGrafico = [0, 0, 0];
+// let seriesGrafico = {
+//   labels: ["Alta", "Média", "Baixa"],
+//   datasets: [
+//     {
+//       label: "Tarefas",
+//       data: dadosGrafico,
+//       borderWidth: 1,
+//     },
+//   ],
+// };
+// let chart = new Chart(grafico, {
+//   type: "bar",
+//   data: seriesGrafico,
+//   options: {
+//     y: {
+//       beginAtZero: true,
+//       ticks: {
+//         stepSize: 1,
+//       },
+//     },
+//   },
+// });
 
 //Inicia o banco de tarefas existentes no LocalStorage
 function IniciaBanco(){
@@ -97,10 +97,10 @@ function mostraTabela() {
   btExcluir.disabled = true;
 
   // atualiza gráfico de tarefas por prioridade
-  dadosGrafico = [0, 0, 0];
-  dados.forEach((t) => dadosGrafico[t.prioridade - 1]++);
-  chart.data.datasets[0].data = dadosGrafico;
-  chart.update();
+  // dadosGrafico = [0, 0, 0];
+  // dados.forEach((t) => dadosGrafico[t.prioridade - 1]++);
+  // chart.data.datasets[0].data = dadosGrafico;
+  // chart.update();
 }
 
 // Mostra a janela modal para criação de nova tarefa

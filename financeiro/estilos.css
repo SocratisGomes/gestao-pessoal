@@ -118,6 +118,7 @@ input:focus {
 
 /* Modal */
 .modal {  
+  
   display: none;
   position: fixed;
   z-index: 1;
@@ -127,21 +128,13 @@ input:focus {
   height: 100%;
   overflow: auto;
   background-color: rgba(0,0,0,0.4);
+  overflow: auto;
+  
 }
 
-/* .corpoModal {
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: 1fr 1fr 2fr 1fr;
-} */
-
-/* .receitas{
-  grid-area: receitas;
-}
-. */
 .modalContent{
   /* background-color: #DEE2E6; */
-  border: 1px solid #DEE2E6;
+  border: 1px solid #cacbcc;
   padding: 0 5px;
   border-radius: 10px;
 }
@@ -151,8 +144,7 @@ input:focus {
   margin-top: 0;
 }
 
-.corpoModal {
-  
+.corpoModal {  
   display: flex;
   flex-direction: column;
   gap: 10px;

@@ -28,10 +28,6 @@ gestao.addEventListener("click", (evt) => {
   mudaPagina(evt.target, "./gestao/gestao.html");
 });
 
-// pSeis.addEventListener("click", (evt) => {
-//   mudaPagina(evt.target, "./personalizar/personalizar.html");
-// });
-
 const mudaPagina = (el, pagina) => {
   const abas = [...document.querySelectorAll(".aba")];
   abas.forEach((e) => {

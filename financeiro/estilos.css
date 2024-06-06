@@ -117,8 +117,7 @@ input:focus {
 }
 
 /* Modal */
-.modal {  
-  
+.modal {    
   display: none;
   position: fixed;
   z-index: 1;
@@ -128,7 +127,7 @@ input:focus {
   height: 100%;
   overflow: auto;
   background-color: rgba(0,0,0,0.4);
-  overflow: auto;
+ 
   
 }
 
@@ -138,8 +137,6 @@ input:focus {
   padding: 0 5px;
   border-radius: 10px;
 }
-
-
 .corpoModal header {
   margin-top: 0;
 }
@@ -149,14 +146,15 @@ input:focus {
   flex-direction: column;
   gap: 10px;
   background-color: #fefefe;
-  margin: 15% auto;
+  margin: 4% auto;
   padding: 10px 20px;
   border: 1px solid #888;
   width: 25rem;
   min-width: 25rem;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   animation-name: animacao;
-  animation-duration: 1s
+  animation-duration: 1s;
+  overflow: auto;
 }
 .cabecalhoRodape{
   border: 1px solid white;

@@ -4,12 +4,11 @@
     <title>Minhas Tarefas</title>
     <meta charset="UTF-8">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- <script defer="" src="./tarefas.js"></script> -->
-    <script defer="" src="crud_tarefas.js"></script>
-    <script defer="" src="tarefasExemplo.js"></script>    
+    <script defer="" src="crud_financeiro.js"></script>
+    <script defer="" src="financeiro.js"></script>    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./estilos.css">
-    <link rel="stylesheet" type="text/css" href="./tarefas.css">
+    <link rel="stylesheet" type="text/css" href="./financeiro.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">    
 </head>
 <body id="content">  
@@ -47,42 +46,66 @@
   <!-- Mostra os popups -->
   <div id="modalTarefa" class="modal">
     <div class="corpoModal">
-      <header>
-        <span id="fechaModal">×</span>
-        <h3>Financeiro</h3>
-      </header>
-      <p>
-        <label for="campoDescricao">Mês: </label>
-        <input type="month" id="campoDescricao">
-        <input type="hidden" id="campoID">
-      </p>
-      <p>
-        <label for="campoData">Mês: </label>
-        <input type="month" id="campoData">
-        <input type="hidden" id="campoID">
-      </p>
-      <p>
-        <label for="campoData">Salário Líq.: </label>
-        <input type="text" id="campoData">
-      </p>
-      <p>
-        <p for="campoData">Pagamentos: </p>
-        <label for="campoData">Nubank: </label>
-        <input type="text" id="campoData">
-      </p>
-      <label for="campoData">Cartão Nubank: </label>
-      <input type="text" id="campoData">
-    </p>
-      <p>
-        <label for="campoData">Trasferir: </label>
-        <input type="text" id="campoData">
-      </p>
-      <p>
-        <button id="btMTCriar">Criar</button>
-        <button id="btMTAlterar">Alterar</button>
-        <button id="btMTExcluir">Excluir</button>
-        <button id="btMTCancelar">Cancelar</button>
-      </p>
+      <div class="cabecalhoRodape">
+        <header>
+          <span id="fechaModal">×</span>
+          <h3>Contas do Mês</h3>
+        </header>
+        <p>
+          <label for="campoMes">Mês: </label>
+          <input type="month" id="campoMes">
+          <input type="hidden" id="campoID">
+        </p>
+      </div>
+      <!-- <hr class="divisor"/> -->
+      <div class="modalContent">
+        <p>
+          <p for="campoData">Receitas: </p>
+          <label for="campoData">Salário Líq.: </label>
+          <input type="text" id="campoData">
+        </p>
+        <p>
+          <label for="campoData">Extra: </label>
+          <input type="text" id="campoData">
+        </p>
+      </div>
+        <!-- <hr class="divisor"/> -->
+      <div class="modalContent">
+        <p>
+          <p for="campoData">Despesas: </p>
+          <label for="campoData">Fat. Nubank: </label>
+          <input type="text" id="campoData">
+        </p>
+        <p>
+          <label for="campoData">Fat. Inter: </label>
+          <input type="text" id="campoData">
+        </p>
+        <p>
+          <label for="campoData">Fat. C6: </label>
+          <input type="text" id="campoData">
+        </p>
+        <p>
+          <label for="campoData">Invest.: </label>
+          <input type="text" id="campoData">
+        </p>
+        <p>
+          <label for="campoData">Em dinheiro: </label>
+          <input type="text" id="campoData">
+        </p>
+      </div>
+        <!-- <hr class="divisor"/>       -->
+      <div class="cabecalhoRodape">
+        <p>
+          <label for="campoData">Sobra: </label>
+          <input type="text" id="campoData">
+        </p>  
+        <p>
+          <button id="btMTCriar">Criar</button>
+          <button id="btMTAlterar">Alterar</button>
+          <button id="btMTExcluir">Excluir</button>
+          <button id="btMTCancelar">Cancelar</button>
+        </p>
+      </div>
     </div>
   </div>
 </body>

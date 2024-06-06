@@ -105,10 +105,10 @@ function mostraTabela() {
 
 // Mostra a janela modal para criação de nova tarefa
 btAdicionar.onclick = function () {
-  campoDescricao.value = "";
+  campoMes.value = "";
   campoData.value = "";
   // campoPrioridade.value = "";
-  campoDescricao.disabled = false;
+  // campoDescricao.disabled = false;
   campoData.disabled = false;
   // campoPrioridade.disabled = false;
   modalTarefa.style.display = "block";
@@ -116,13 +116,13 @@ btAdicionar.onclick = function () {
   btMTAlterar.style.display = "none";
   btMTExcluir.style.display = "none";
   btMTCriar.disabled = true;
-  campoDescricao.focus();
+  campoMes.focus();
 };
 
 // Verifica se os três campos estão preenchidos antes de criar ou alterar tarefa
 let liberaBotaoMT = function () {
   if (
-    campoDescricao.value.length > 0 &&
+    campoMes.value.length > 0 &&
     campoData.value.length > 0 &&
     campoPrioridade.value.length > 0
   ) {
@@ -133,14 +133,14 @@ let liberaBotaoMT = function () {
     btMTAlterar.disabled = true;
   }
 };
-campoDescricao.onkeyup = liberaBotaoMT;
+campoMes.onkeyup = liberaBotaoMT;
 campoData.onchange = liberaBotaoMT;
 campoPrioridade.onchange = liberaBotaoMT;
 
 // Confirma a criação da tarefa
 btMTCriar.onclick = function () {
   let tarefa = {
-    descricao: campoDescricao.value,
+    descricao: campoMes.value,
     data: campoData.value,
     prioridade: campoPrioridade.value,
   };
@@ -156,11 +156,11 @@ btEditar.onclick = function () {
   let selecionado = selecoes.find((i) => i.checked == true);
   if (selecionado) {
     let tarefa = readTarefa(selecionado.value);
-    campoDescricao.value = tarefa.descricao;
+    campoMes.value = tarefa.descricao;
     campoData.value = tarefa.data;
     campoPrioridade.value = tarefa.prioridade;
     campoID.value = tarefa.id;
-    campoDescricao.disabled = false;
+    campoMes.disabled = false;
     campoData.disabled = false;
     campoPrioridade.disabled = false;
     modalTarefa.style.display = "block";
@@ -168,7 +168,7 @@ btEditar.onclick = function () {
     btMTAlterar.style.display = "inline-block";
     btMTExcluir.style.display = "none";
     btMTAlterar.disabled = false;
-    campoDescricao.focus();
+    campoMes.focus();
   }
 };
 
@@ -176,7 +176,7 @@ btEditar.onclick = function () {
 btMTAlterar.onclick = function () {
   let tarefaEditada = {
     id: campoID.value,
-    descricao: campoDescricao.value,
+    descricao: campoMes.value,
     data: campoData.value,
     prioridade: campoPrioridade.value,
   };
@@ -193,11 +193,11 @@ btExcluir.onclick = function () {
   let selecionado = selecoes.find((i) => i.checked == true);
   if (selecionado) {
     let tarefa = readTarefa(selecionado.value);
-    campoDescricao.value = tarefa.descricao;
+    campoMes.value = tarefa.descricao;
     campoData.value = tarefa.data;
     campoPrioridade.value = tarefa.prioridade;
     campoID.value = tarefa.id;
-    campoDescricao.disabled = true;
+    campoMes.disabled = true;
     campoData.disabled = true;
     campoPrioridade.disabled = true;
     modalTarefa.style.display = "block";

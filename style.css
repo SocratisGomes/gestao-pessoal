@@ -4,7 +4,6 @@
     --var: #000;
 }
 
-
 *{
     border: none;
     padding: 0px;
@@ -20,7 +19,6 @@ body{
    
     
 }
-
 .cabecalho{
     display: flex;
     /* justify-content: space-between; */
@@ -29,7 +27,6 @@ body{
     background-color: #ddd;
     margin: 50px;
 }
-
 .logo{
     background-color: blueviolet;
     display: flex;
@@ -40,7 +37,6 @@ body{
     width: 60px;
     height: 60px;
 }
-
 .meuMundo p{
     display: flex;
     justify-content: space-between;

@@ -20,7 +20,7 @@ function createTarefa(tarefa, fncallback) {
 }
 
 function readTarefas() {
-  return JSON.parse(localStorage.getItem("tarefas")) || [];
+  return JSON.parse(localStorage.getItem("mes")) || [];
 }
 
 function readTarefa(idTarefa) {
@@ -29,7 +29,7 @@ function readTarefa(idTarefa) {
 }
 
 function updateTarefas(tarefas) {
-  localStorage.setItem("tarefas", JSON.stringify(tarefas));
+  localStorage.setItem("mes", JSON.stringify(tarefas));
 }
 
 function updateTarefa(tarefaAtualizada) {

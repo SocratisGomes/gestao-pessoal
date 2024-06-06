@@ -117,7 +117,7 @@ input:focus {
 }
 
 /* Modal */
-.modal {
+.modal {  
   display: none;
   position: fixed;
   z-index: 1;
@@ -140,7 +140,7 @@ input:focus {
 }
 . */
 .modalContent{
-  background-color: #DEE2E6;
+  /* background-color: #DEE2E6; */
   border: 1px solid #DEE2E6;
   padding: 0 5px;
   border-radius: 10px;
@@ -152,6 +152,7 @@ input:focus {
 }
 
 .corpoModal {
+  
   display: flex;
   flex-direction: column;
   gap: 10px;

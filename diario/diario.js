@@ -1,16 +1,16 @@
 //BOTÕES DAS ABAS
 um.onclick = function(){
-    location.href = '/home/index.html'
+    location.href = '../home/index.html'
   }
   dois.onclick = function(){
-    location.href = '/tarefas/tarefas.html'
+    location.href = '../tarefas/tarefas.html'
   }
   tres.onclick = function(){
-    location.href = '/financeiro/financeiro.html'
+    location.href = '../financeiro/financeiro.html'
   }
-  quatro.onclick = function(){
-    location.href = 'diario.html'
-  }
+  // quatro.onclick = function(){
+  //   location.href = 'diario.html'
+  // }
   cinco.onclick = function(){
-    location.href = '/geral/geral.html'
+    location.href = '../geral/geral.html'
   }

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/cabecalhofixo.css">
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <link rel="shortcut icon" href="/src/images/icone.ico" type="image/x-icon"/>
+    <script defer src="gestaoP.js"></script>
+    <title>Gestão Pessoal</title>
+  </head>
+  <body>
+    <!--CABEÇALHO - ABAS-->
+    <div class="header">
+      <div id="cabecalho" class="cabecalho">
+        <div class="logo">
+          <img class="" src="../src/images/logo.png" alt="">       
+        </div>
+        <div class="meuMundo"><p >GESTÃO PESSOAL</p></div>      
+      </div>
+      <div id="menu" class="menu">
+        <button id="um" class="aba abaSelecionada">Home</button>
+        <button id="dois" class="aba">Terefas</button>      
+        <button id="tres" class="aba">Finanças</button>
+        <button id="quatro" class="aba">Diário</button>
+        <button id="cinco" class="aba">Geral</button>
+      </div>
+    </div>
+    <!-- CONTEÚDO - IFRAME -->
+    <div class="grid">
+      <div class="titulo"><span>Título</span></div>  
+      <div class="graficoPrioridades">
+          <div id="areaGrafico">
+              <h3>Tarefas por prioridade</h3>
+              <canvas id="grafico"></canvas>
+          </div>
+      </div>    
+          <div class="graficoDiario">
+              <span>Grafico Diário das Tarefas</span>                
+          </div>                
+          
+          <div class="calendario">
+              <span>Calendário</span>
+              <div class="tabHome">
+                  <img src="../src/images/sync.png" alt="" class="imgHome">
+              </div>
+          </div>  
+          <div class="graficoPizza">
+              <span>Gráfico de pizza</span>
+          </div>   
+          
+          <div class="notificacoe">
+              <span>Notificações de Prioridades Alta</span>
+              <div id="relogio" class="relogio">
+                  <span id="horas">00</span>
+                  <span id="minutos">00</span>
+                  <span id="segundos">00</span>
+              </div>                
+           </div>  
+           <div class="footer">
+            <span>Rodape</span>
+        </div>   
+     
+  </div>
+    <!-- <div id="principal" class="principal"></div> -->
+  </body>
+</html>

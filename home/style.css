@@ -1,0 +1,122 @@
+
+/* CONTEUDO HOME */
+
+:root{
+    --var: #ddd;
+    --var: #228;
+    --var: #000;
+ }
+ .grid{
+    display: grid;
+    grid-template-columns: 300px 300px 300px ;
+    grid-template-rows: 50px 250px 250px 500px;
+    grid-template-areas: 'titulo titulo titulo'
+    'graficoPrioridades graficoDiario graficoDiario'
+    'calendario graficoPizza notificacoe'
+    'footer footer footer';  
+    gap: 10px;
+    margin: 35px 0 auto 10px;
+    background-color: #fff;
+ }
+ .titulo{
+   /* margin: 20px; */
+    grid-area: titulo;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: solid 2px #999; */
+    color: black;
+    margin-left: 10px;
+ }
+ .graficoPrioridades{
+    grid-area: graficoPrioridades;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    border-radius: 10px;
+    border: solid 2px #999;;
+    margin-left: 10px;
+ }
+ .graficoDiario{
+    grid-area: graficoDiario;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: solid 2px #999;
+    color: black;
+ }
+ .notificacoe{
+    grid-area: notificacoe;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+    color: black;
+    border-radius: 10px;
+    border: solid 2px #999;
+ }
+ .calendario{
+    grid-area: calendario;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: solid 2px #999; 
+    margin-left: 10px;  
+ }
+ .graficoPizza{
+    grid-area: graficoPizza;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    border-radius: 10px;
+    border: solid 2px #999;
+ }
+ .footer{
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    border-radius: 10px;
+    border: solid 2px #999;
+    margin-left: 10px;
+ }
+ 
+ .imgHome{
+    width: 200px;
+    height: 100px;
+ }  
+ .relogio{    
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: left;
+    background-color: #228;
+    padding: 0px 20px;
+    border-radius: 10px 10px;
+    width: 190px;
+    /* height: 50px; */
+ } 
+ .relogio span{    
+    /* margin: 0px 10px 0px 10px; */
+    display: flex;
+    align-items: center;
+    /* gap 50px; */
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    height: 40px;
+ } 
+ .relogio span:not(:last-child)::after{
+    content: ':';
+    margin: 15px;
+    color: #fff;
+ }
+

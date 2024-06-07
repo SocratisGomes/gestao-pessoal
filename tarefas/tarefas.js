@@ -1,26 +1,175 @@
-content.onload = function () {
-  iniciaBanco();
-};
-function iniciaBanco() {
-  // localStorage.setItem("tarefas", JSON.stringify([]));
-  let bancoTarefas = JSON.parse(localStorage.getItem("tarefas"));
-  let conteudo = "";
-  bancoTarefas.map((tarefa) => {
-    conteudo += `
-    <tr id='linha-${tarefa.id}'>
-      <td class='selecao'>
-      <input type="radio" name="campoSelecao" value="${tarefa.id}"/></td>
-      <td class="celula-1">${tarefa.descricao}</td>
-      <td class="celula-2">${formataData(tarefa.data)}</td>
-      <td class="celula-3">${prioridade(tarefa.prioridade)}</td>
-      <td></td>
-    </tr>`;
-    console.log(tarefa.id)
-    // modalTarefa.style.display = "none";
-    corpoTabela.innerHTML = conteudo;
-  });
+/* 
+TAREFAS
+number: id
+string: descricao
+number: data
+number: prioridade
+*/
+
+function createTarefa(tarefa, fncallback) {
+  fetch("https://www.uuidgenerator.net/api/version4")
+    .then((r) => r.text())
+    .then((t) => {
+      tarefa.id = t;
+      let tarefas = readTarefas();
+      tarefas.push(tarefa);
+      updateTarefas(tarefas);
+      fncallback();
+    })
+    .catch((erro) => console.error(erro));
 }
-//Botão para adicionar tarefas
+
+function readTarefas() {
+  return JSON.parse(localStorage.getItem("tarefas")) || [];
+}
+
+function readTarefa(idTarefa) {
+  let tarefas = readTarefas();
+  return tarefas.find((tarefa) => tarefa.id == idTarefa);
+}
+
+function updateTarefas(tarefas) {
+  localStorage.setItem("tarefas", JSON.stringify(tarefas));
+}
+
+function updateTarefa(tarefaAtualizada) {
+  let tarefas = readTarefas();
+  let indice = tarefas.findIndex((tarefa) => tarefa.id == tarefaAtualizada.id);
+  tarefas[indice] = tarefaAtualizada;
+  updateTarefas(tarefas);
+}
+
+function deleteTarefa(idExcluida) {
+  let tarefas = readTarefas();
+  let indice = tarefas.findIndex((tarefa) => tarefa.id == idExcluida);
+  tarefas.splice(indice, 1);
+  updateTarefas(tarefas);
+}
+
+//TAREFAS
+//BOTÕES DAS ABAS
+um.onclick = function(){
+  location.href = '/home/index.html'
+}
+dois.onclick = function(){
+  location.href = 'tarefas.html'
+}
+tres.onclick = function(){
+  location.href = '/financeiro/financeiro.html'
+}
+quatro.onclick = function(){
+  location.href = '/diario/diario.html'
+}
+cinco.onclick = function(){
+  location.href = '/geral/geral.html'
+}
+
+/// Cria o gráfico de tarefas por prioridade
+let dadosGrafico = [0, 0, 0];
+let seriesGrafico = {
+  labels: ["Alta", "Média", "Baixa"],
+  datasets: [
+    {
+      label: "Tarefas",
+      data: dadosGrafico,
+      borderWidth: 1,
+    },
+  ],
+};
+let chart = new Chart(grafico, {
+  type: "bar",
+  data: seriesGrafico,
+  options: {
+    y: {
+      beginAtZero: true,
+      ticks: {
+        stepSize: 1,
+      },
+    },
+  },
+});
+
+//Inicia o banco de tarefas existentes no LocalStorage
+function IniciaBanco(){
+  // localStorage.setItem("tarefas", JSON.stringify([]));
+  BancoTarefas = readTarefas()
+  let conteudo = "";
+  BancoTarefas.forEach((item) => {
+    conteudo += `
+      <tr id='linha-${item.id}'>
+        <td class='selecao'>
+          <input type="radio" name="campoSelecao" value="${item.id}" />
+        </td>
+        <td class="celula-1">
+          ${item.descricao}
+        </td>
+        <td class="celula-2"> 
+          ${formataData(item.data)}
+        </td>
+        <td class="celula-3">
+          ${prioridade(item.prioridade)}
+        </td>
+        <td></td>
+      </tr>
+    `;
+  })
+  corpoTabela.innerHTML = conteudo;
+}
+
+
+// Desenha a tabela com novas tarefas 
+function mostraTabela() {
+    // carrega dados
+  let listaDeTarefas = readTarefas();
+  dados = listaDeTarefas.filter(
+    (t) =>
+      filtro.value === "" ||
+      t.descricao.toLowerCase().includes(filtro.value.toLowerCase())
+  );
+
+  // gera conteúdo da tabela
+  let conteudo = "";
+  dados.forEach((item) => {
+    conteudo += `
+      <tr id='linha-${item.id}'>
+        <td class='selecao'>
+          <input type="radio" name="campoSelecao" value="${item.id}" />
+        </td>
+        <td class="celula-1">
+          ${item.descricao}
+        </td>
+        <td class="celula-2"> 
+          ${formataData(item.data)}
+        </td>
+        <td class="celula-3">
+          ${prioridade(item.prioridade)}
+        </td>
+        <td></td>
+      </tr>
+    `;
+  });
+  corpoTabela.innerHTML = conteudo;
+
+  // determina comportamento dos botões e outros componentes interativos
+  let botoesSelecao = document.querySelectorAll("input[name=campoSelecao]");
+  botoesSelecao.forEach((b) => {
+    b.onclick = function (e) {
+      btEditar.disabled = false;
+      btExcluir.disabled = false;
+    };
+  });
+  btAdicionar.disabled = false;
+  btEditar.disabled = true;
+  btExcluir.disabled = true;
+
+  // atualiza gráfico de tarefas por prioridade
+  dadosGrafico = [0, 0, 0];
+  dados.forEach((t) => dadosGrafico[t.prioridade - 1]++);
+  chart.data.datasets[0].data = dadosGrafico;
+  chart.update();
+}
+
+// Mostra a janela modal para criação de nova tarefa
 btAdicionar.onclick = function () {
   campoDescricao.value = "";
   campoData.value = "";
@@ -34,10 +183,6 @@ btAdicionar.onclick = function () {
   btMTExcluir.style.display = "none";
   btMTCriar.disabled = true;
   campoDescricao.focus();
-};
-
-fechaModal.onclick = function () {
-  modalTarefa.style.display = "none";
 };
 
 // Verifica se os três campos estão preenchidos antes de criar ou alterar tarefa
@@ -60,61 +205,61 @@ campoPrioridade.onchange = liberaBotaoMT;
 
 // Confirma a criação da tarefa
 btMTCriar.onclick = function () {
-  let bancoTarefas = JSON.parse(localStorage.getItem("tarefas"));
-  console.log(bancoTarefas);
-  if (bancoTarefas == null) {
-    bancoTarefas = [];
-  }
-  
   let tarefa = {
     descricao: campoDescricao.value,
     data: campoData.value,
     prioridade: campoPrioridade.value,
   };
-  bancoTarefas.push(tarefa);
-
-  //gera conteúdo da tabela
-  let conteudo = "";
-  conteudo += `
-        <tr id='linha-${tarefa.id}'>
-          <td class='selecao'>
-          <input type="radio" name="campoSelecao" value="${tarefa.id}"/></td>
-          <td class="celula-1">${tarefa.descricao}</td>
-          <td class="celula-2">${formataData(tarefa.data)}</td>
-          <td class="celula-3">${prioridade(tarefa.prioridade)}</td>
-          <td></td>
-        </tr>`;
+  createTarefa(tarefa, mostraTabela);
   modalTarefa.style.display = "none";
-  corpoTabela.innerHTML += conteudo;
-  localStorage.setItem("tarefas", JSON.stringify(bancoTarefas));
 };
 
-// funções de apoio para formatar os valores da tabela
-function prioridade(p) {
-  let prioridades = ["Alta", "Média", "Baixa"];
-  return prioridades[parseInt(p) - 1];
-}
-
-function formataData(d) {
-  [ano, mes, dia] = d.split("-");
-  return dia + "-" + mes + "-" + ano;
-}
-
-//Mostra popup para exclusão de uma tarefa existente
-btExcluir.onclick = function () {
-  let bancoTarefas = JSON.parse(localStorage.getItem("tarefas"));
-  console.log(bancoTarefas);
-  let selecoes = [...document.querySelectorAll("name=campoSelecao")];
-
-  console.log(selecoes);
-  // let selecoes = document.querySelectorAll('imput[campoSelecao]')
+// Mostra a janela modal para edição de uma tarefa existente
+btEditar.onclick = function () {
+  let selecoes = Array.from(
+    document.querySelectorAll("input[name=campoSelecao]")
+  );
   let selecionado = selecoes.find((i) => i.checked == true);
-  console.log(selecionado);
   if (selecionado) {
-    bancoTarefas = selecionado.value;
-    console.log(selecionado.value);
+    let tarefa = readTarefa(selecionado.value);
     campoDescricao.value = tarefa.descricao;
-    console.log(selecionado.value);
+    campoData.value = tarefa.data;
+    campoPrioridade.value = tarefa.prioridade;
+    campoID.value = tarefa.id;
+    campoDescricao.disabled = false;
+    campoData.disabled = false;
+    campoPrioridade.disabled = false;
+    modalTarefa.style.display = "block";
+    btMTCriar.style.display = "none";
+    btMTAlterar.style.display = "inline-block";
+    btMTExcluir.style.display = "none";
+    btMTAlterar.disabled = false;
+    campoDescricao.focus();
+  }
+};
+
+// Confirma a alteração da tarefa
+btMTAlterar.onclick = function () {
+  let tarefaEditada = {
+    id: campoID.value,
+    descricao: campoDescricao.value,
+    data: campoData.value,
+    prioridade: campoPrioridade.value,
+  };
+  updateTarefa(tarefaEditada);
+  modalTarefa.style.display = "none";
+  mostraTabela();
+};
+
+// Mostra a janela modal para exclusão de uma tarefa existente
+btExcluir.onclick = function () {
+  let selecoes = Array.from(
+    document.querySelectorAll("input[name=campoSelecao]")
+  );
+  let selecionado = selecoes.find((i) => i.checked == true);
+  if (selecionado) {
+    let tarefa = readTarefa(selecionado.value);
+    campoDescricao.value = tarefa.descricao;
     campoData.value = tarefa.data;
     campoPrioridade.value = tarefa.prioridade;
     campoID.value = tarefa.id;
@@ -139,3 +284,59 @@ btMTExcluir.onclick = function () {
 btMTCancelar.onclick = function () {
   modalTarefa.style.display = "none";
 };
+
+// Configura o botão de fechar a janela modal
+fechaModal.onclick = function () {
+  modalTarefa.style.display = "none";
+};
+
+// Ordenação pelas três colunas
+th1.onclick = () => {
+  let dados = readTarefas();
+  dados.sort((a, b) =>
+    a.descricao.localeCompare(b.descricao, "pt-br", { sensitivity: "base" })
+  );
+  updateTarefas(dados);
+  mostraTabela();
+};
+th2.onclick = () => {
+  let dados = readTarefas();
+  dados.sort((a, b) =>
+    a.data.localeCompare(b.data, "pt-br", { sensitivity: "base" })
+  );
+  updateTarefas(dados);
+  mostraTabela();
+};
+th3.onclick = () => {
+  let dados = readTarefas();
+  dados.sort((a, b) =>
+    a.prioridade.localeCompare(b.prioridade, "pt-br", { sensitivity: "base" })
+  );
+  updateTarefas(dados);
+  mostraTabela();
+};
+
+// funções de apoio para formatar os valores da tabela
+function prioridade(p) {
+  let prioridades = ["Alta", "Média", "Baixa"];
+  return prioridades[parseInt(p) - 1];
+}
+function formataData(d) {
+  [ano, mes, dia] = d.split("-");
+  return dia + "-" + mes + "-" + ano;
+}
+
+// Funções para tratamento do filtro
+limpaFiltro.onclick = function () {
+  filtro.value = "";
+  mostraTabela();
+};
+
+filtro.onkeyup = function () {
+  mostraTabela();
+};
+
+// Após preparar todo o código, desenha a versão preliminar da tabela, com dados já existentes
+IniciaBanco();
+mostraTabela();
+

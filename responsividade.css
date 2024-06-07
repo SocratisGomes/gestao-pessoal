@@ -1,0 +1,22 @@
+/* 
+body{
+    background-color: red;
+}
+.principalTarefa{
+    background-color: red;
+}
+
+
+
+@media only screen and(max-device-width: 480px){
+   
+    .principalTarefa{
+        height: 1000px;
+        margin: 35px 0;
+        background-color: #fff;
+        /* overflow-y: scroll; */
+    /* }
+  
+
+}
+     */ 

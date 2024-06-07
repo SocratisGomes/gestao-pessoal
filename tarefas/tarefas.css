@@ -1,3 +1,17 @@
+/* 
+@media only screen and (max-device-width: 480px){
+  .menu{
+   margin: 0;
+  }
+  .principalTarefa{
+   margin: 0;
+  }
+  .corpoModal {    
+    margin: 35% auto;    
+  }
+  
+   
+ } */
 
 /*CONTEÚDO*/
 .principalTarefa{
@@ -147,6 +161,7 @@ button:disabled {
 }
 
 input, select {
+  margin: 10px;
   padding: 6px 12px;
   font-size: 1rem;
   font-weight: 100;
@@ -184,13 +199,13 @@ input:focus {
 }
 
 .corpoModal {
+  border-radius: 10px;
   background-color: #fefefe;
   margin: 15% auto;
   padding: 10px 20px;
   border: 1px solid #888;
-  width: 20rem;
-  min-width: 20rem;
-
+  width: 24rem;
+  min-width: 24rem;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   animation-name: animacao;
   animation-duration: 1s
@@ -206,7 +221,7 @@ input:focus {
   float: right;
   font-size: 28px;
   font-weight: bold;
-  margin-top: -1rem;
+  margin-top: -0.5rem;
 }
 
 #fechaModal:hover,
@@ -215,3 +230,4 @@ input:focus {
   text-decoration: none;
   cursor: pointer;
 }
+

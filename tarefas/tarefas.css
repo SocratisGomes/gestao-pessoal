@@ -4,6 +4,7 @@
   height: 1000px;
   margin: 35px 0 auto 10px;
   background-color: #fff;
+  /* overflow-y: scroll; */
 }
 table {
     max-width: 850px;

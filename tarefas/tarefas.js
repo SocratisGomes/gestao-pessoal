@@ -51,9 +51,6 @@ function deleteTarefa(idExcluida) {
 um.onclick = function(){
   location.href = '../home/index.html'
 }
-// dois.onclick = function(){
-//   location.href = 'tarefas.html'
-// }
 tres.onclick = function(){
   location.href = '../financeiro/financeiro.html'
 }
@@ -65,29 +62,29 @@ cinco.onclick = function(){
 }
 
 /// Cria o gráfico de tarefas por prioridade
-let dadosGrafico = [0, 0, 0];
-let seriesGrafico = {
-  labels: ["Alta", "Média", "Baixa"],
-  datasets: [
-    {
-      label: "Tarefas",
-      data: dadosGrafico,
-      borderWidth: 1,
-    },
-  ],
-};
-let chart = new Chart(grafico, {
-  type: "bar",
-  data: seriesGrafico,
-  options: {
-    y: {
-      beginAtZero: true,
-      ticks: {
-        stepSize: 1,
-      },
-    },
-  },
-});
+// let dadosGrafico = [0, 0, 0];
+// let seriesGrafico = {
+//   labels: ["Alta", "Média", "Baixa"],
+//   datasets: [
+//     {
+//       label: "Tarefas",
+//       data: dadosGrafico,
+//       borderWidth: 1,
+//     },
+//   ],
+// };
+// let chart = new Chart(grafico, {
+//   type: "bar",
+//   data: seriesGrafico,
+//   options: {
+//     y: {
+//       beginAtZero: true,
+//       ticks: {
+//         stepSize: 1,
+//       },
+//     },
+//   },
+// });
 
 //Inicia o banco de tarefas existentes no LocalStorage
 function IniciaBanco(){

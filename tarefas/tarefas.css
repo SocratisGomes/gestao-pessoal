@@ -117,24 +117,24 @@ td {
 table #col_sel, table .selecao {
   width: 1.5rem;
 }
-button {
+button.botao{
   cursor: pointer;
   outline: 0;
   display: inline-block;
-  /* font-weight: 400; */
-  /* line-height: 1.5; */
+  font-weight: 400;
+  line-height: 1.5;
   text-align: center;
   background-color: #228;
-  /* border: 1px solid transparent; */
+  border: 1px solid transparent;
   padding: 6px 12px;
-  /* font-size: 0.75rem; */
+  font-size: 0.75rem;
   border-radius: .25rem;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   color: #fff;
   border-color: #555;
 }
 
-button:hover {
+button:hover.botao {
   color: #555;
   background-color: #DEE2E6;
   border-color: #DEE2E6;

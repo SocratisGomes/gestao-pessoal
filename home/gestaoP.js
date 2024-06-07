@@ -1,9 +1,9 @@
 //BOTÕES DAS ABAS
 dois.onclick = function(){
-  location.href = '../tarefas/tarefas.html'
+  paginaSelecionada(location.href = '../tarefas/tarefas.html')
 }
 tres.onclick = function(){
-  location.href = '../financeiro/financeiro.html'
+  paginaSelecionada(location.href = '../financeiro/financeiro.html')
 }
 quatro.onclick = function(){
   location.href = '../diario/diario.html'
@@ -12,15 +12,25 @@ cinco.onclick = function(){
   location.href = '../geral/geral.html'
 }
 
-function mudaPagina(pagina){
-  let abas = [...document.querySelectorAll(".aba")];
-  console.log(abas)
-  abas.forEach((e) => {
-    e.classList.remove("abaSelecionada");
+function paginaSelecionada(){
+  let abas = document.querySelectorAll('.aba');
+  abas.forEach(aba => {abas.classList.remove('abaSelecionada')
+
   });
-  el.classList.add("abaSelecionada");
-  window.open(pagina);
-};
+  
+
+}
+
+
+// function mudaPagina(pagina){
+//   let abas = [...document.querySelectorAll(".aba")];
+//   console.log(abas)
+//   abas.forEach((e) => {
+//     e.classList.remove("abaSelecionada");
+//   });
+//   el.classList.add("abaSelecionada");
+//   window.open(pagina);
+// };
 // const menu = document.querySelector("#menu");
 // const home = document.querySelector("#um");
 // const tarefas = document.querySelector("#dois");

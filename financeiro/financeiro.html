@@ -43,7 +43,7 @@
            <th id="th1" class="col1">Mês</th>
            <th id="th2" class="col2">Salário Líq.</th>
            <th id="th3" class="col3">Pagamentos</th>
-           <th id="th4" class="col3">Trasnferir</th>
+           <th id="th4" class="col3">Sobra</th>
          </tr>
        </thead>
        <tbody id="corpoTabela"></tbody>
@@ -57,10 +57,10 @@
          </tr>
        </tfoot>
      </table>
-     <div id="areaGrafico">
+     <!-- <div id="areaGrafico">
        <h3>Tarefas por prioridade</h3>
        <canvas id="grafico"></canvas>
-     </div>
+     </div> -->
      <!-- Mostra os popups -->
      <div id="modalTarefa" class="modal">
        <div class="corpoModal">
@@ -70,7 +70,7 @@
              <h3>Contas do Mês</h3>
            </header>
            <p>
-             <label for="campoMes">Mês: </label>
+             <label for="campoMes" class="mes">Mês: </label>
              <input type="month" id="campoMes">
              <input type="hidden" id="campoID">
            </p>
@@ -78,7 +78,7 @@
          <!-- <hr class="divisor"/> -->
          <div class="modalContent">
            <p>
-             <p for="campoData">Receitas: </p>
+             <p class="receitaDespesa" for="campoData">Receitas: </p>
              <label for="campoData">Salário Líq.: </label>
              <input type="text" id="campoData">
            </p>
@@ -90,7 +90,7 @@
            <!-- <hr class="divisor"/> -->
          <div class="modalContent">
            <p>
-             <p for="campoData">Despesas: </p>
+             <p class="receitaDespesa" for="campoData">Despesas: </p>
              <label for="campoData">Fat. Nubank: </label>
              <input type="text" id="campoData">
            </p>
@@ -114,7 +114,7 @@
            <!-- <hr class="divisor"/>       -->
          <div class="cabecalhoRodape">
            <p>
-             <label for="campoData">Sobra: </label>
+             <label class="receitaDespesa" for="campoData">Sobra: </label>
              <input type="text" id="campoData">
            </p>  
            <p>

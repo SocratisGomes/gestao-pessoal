@@ -1,24 +1,22 @@
-/* 
-TAREFAS
-number: id
-string: descricao
-number: data
-number: prioridade
-*/
-
-function createTarefa(tarefa, fncallback) {
-  fetch("https://www.uuidgenerator.net/api/version4")
-    .then((r) => r.text())
-    .then((t) => {
-      tarefa.id = t;
-      let tarefas = readTarefas();
-      tarefas.push(tarefa);
-      updateTarefas(tarefas);
-      fncallback();
-    })
-    .catch((erro) => console.error(erro));
+//BOTÕES DAS ABAS
+um.onclick = function(){
+  location.href = '../home/index.html'
+}
+dois.onclick = function(){
+  location.href = '../tarefas/tarefas.html'
+}
+quatro.onclick = function(){
+  location.href = '../diario/diario.html'
+}
+cinco.onclick = function(){
+  location.href = '../geral/geral.html'
 }
 
+function createTarefa(tarefa, fncallback) {
+  let tarefas = readTarefas();
+  tarefas.push(tarefa);
+  updateTarefas(tarefas);
+}
 function readTarefas() {
   return JSON.parse(localStorage.getItem("mes")) || [];
 }
@@ -44,23 +42,6 @@ function deleteTarefa(idExcluida) {
   let indice = tarefas.findIndex((tarefa) => tarefa.id == idExcluida);
   tarefas.splice(indice, 1);
   updateTarefas(tarefas);
-}
-
-//BOTÕES DAS ABAS
-um.onclick = function(){
-  location.href = '../home/index.html'
-}
-dois.onclick = function(){
-  location.href = '../tarefas/tarefas.html'
-}
-// tres.onclick = function(){
-//   location.href = 'financeiro.html'
-// }
-quatro.onclick = function(){
-  location.href = '../diario/diario.html'
-}
-cinco.onclick = function(){
-  location.href = '../geral/geral.html'
 }
 
 //Inicia o banco de tarefas existentes no LocalStorage
@@ -145,13 +126,14 @@ function mostraTabela() {
 
 // Mostra a janela modal para criação de nova tarefa
 btAdicionar.onclick = function () {
+  modalTarefa.style.display = "block";
   campoMes.value = "";
   campoData.value = "";
   // campoPrioridade.value = "";
   // campoDescricao.disabled = false;
   campoData.disabled = false;
   // campoPrioridade.disabled = false;
-  modalTarefa.style.display = "block";
+  
   btMTCriar.style.display = "inline-block";
   btMTAlterar.style.display = "none";
   btMTExcluir.style.display = "none";
@@ -163,8 +145,7 @@ btAdicionar.onclick = function () {
 let liberaBotaoMT = function () {
   if (
     campoMes.value.length > 0 &&
-    campoData.value.length > 0 &&
-    campoPrioridade.value.length > 0
+    campoData.value.length > 0 
   ) {
     btMTCriar.disabled = false;
     btMTAlterar.disabled = false;
@@ -175,7 +156,7 @@ let liberaBotaoMT = function () {
 };
 campoMes.onkeyup = liberaBotaoMT;
 campoData.onchange = liberaBotaoMT;
-campoPrioridade.onchange = liberaBotaoMT;
+// campoPrioridade.onchange = liberaBotaoMT;
 
 // Confirma a criação da tarefa
 btMTCriar.onclick = function () {

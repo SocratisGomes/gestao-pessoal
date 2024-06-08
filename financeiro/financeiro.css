@@ -233,8 +233,12 @@ input:focus {
   margin-top: 0;
 }
 .modalContent p{
-  margin: 5px;
+  margin: 5px 0;
 }
+.receitaDespesa{
+  font-weight: bold;
+}
+
 /* .modalContent input{
   width: 50px;
 } */

@@ -160,10 +160,10 @@ function mostraTabela() {
   btExcluir.disabled = true;
 
   // atualiza gráfico de tarefas por prioridade
-  dadosGrafico = [0, 0, 0];
-  dados.forEach((t) => dadosGrafico[t.prioridade - 1]++);
-  chart.data.datasets[0].data = dadosGrafico;
-  chart.update();
+  // dadosGrafico = [0, 0, 0];
+  // dados.forEach((t) => dadosGrafico[t.prioridade - 1]++);
+  // chart.data.datasets[0].data = dadosGrafico;
+  // chart.update();
 }
 
 // Mostra a janela modal para criação de nova tarefa
@@ -186,8 +186,7 @@ btAdicionar.onclick = function () {
 let liberaBotaoMT = function () {
   if (
     campoDescricao.value.length > 0 &&
-    campoData.value.length > 0 &&
-    campoPrioridade.value.length > 0
+    campoData.value.length > 0 
   ) {
     btMTCriar.disabled = false;
     btMTAlterar.disabled = false;

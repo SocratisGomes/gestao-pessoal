@@ -1,5 +1,5 @@
 //BOTÕES DAS ABAS
-um.onclick = function(){
+  um.onclick = function(){
     location.href = '../home/index.html'
   }
   dois.onclick = function(){

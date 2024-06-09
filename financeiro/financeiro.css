@@ -287,4 +287,8 @@ input:focus {
   text-decoration: none;
   cursor: pointer;
 }
-
+.link{
+  text-decoration: none;
+  color: #228;
+  font-weight: bold;
+}

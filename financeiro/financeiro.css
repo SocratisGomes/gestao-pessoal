@@ -23,29 +23,33 @@ table {
     margin: 0 auto;
   }
   
-  .col1 {
-    min-width: 5rem;
-  }
-  .col2 {
-    min-width: 5rem;
-  }
+  /* .col1 {
+    width: 10%;
+    background-color: blue;
+  }  */
+  /* .col2 {
+    width: 50px;
+    background-color: green;
+  } 
   .col3 {
-    min-width: 5rem;
+    width: 50px;
+    background-color: red;
   }
   .col4 {
-    min-width: 5rem;
-  }
-  
+    width: 50px;
+    background-color: yellow;
+  } */
+   
   .modal label {
     width: 90px;
     display: inline-block;
   }
   
-  #campoDescricao,
+  /* #campoDescricao,
   #campoDescricao2 {
     width: 18rem;
   }
-  
+   */
   #areaFiltro {
     max-width: 850px;
     margin: 0 auto;
@@ -62,17 +66,17 @@ table {
   #filtro {
     flex: 1;
   }
-  
+/*   
   #areaGrafico {
     max-width: 850px;
     margin: 0 auto;
     height: 250px;
-  }
+  } */
   
-  #areaGrafico h3 {
+  /* #areaGrafico h3 {
     margin-top: 2em;
     margin-bottom: 0;
-  }
+  } */
   .corpoModal {
     background-color: #fefefe;
     margin: 4% auto;
@@ -136,6 +140,7 @@ th {
   vertical-align: bottom;
   padding: 0.75rem;
   font-weight: 400;  
+  /* width: 50px; */
 }
 
 td {
@@ -147,9 +152,9 @@ td {
   border-top: 1px solid #DEE2E6;
   width: 100%;
 }
-
+ 
 table #col_sel, table .selecao {
-  width: 1.5rem;
+  width: 10px;
 }
 
 button.botao {

@@ -8,9 +8,9 @@ tres.onclick = function(){
 quatro.onclick = function(){
   location.href = '../diario/diario.html'
 }
-cinco.onclick = function(){
-  location.href = '../geral/geral.html'
-}
+// cinco.onclick = function(){
+//   location.href = '../geral/geral.html'
+// }
 
 function paginaSelecionada(){
   let abas = document.querySelectorAll('.aba');

@@ -11,6 +11,6 @@ um.onclick = function(){
   // quatro.onclick = function(){
   //   location.href = 'diario.html'
   // }
-  cinco.onclick = function(){
-    location.href = '../geral/geral.html'
-  }
+  // cinco.onclick = function(){
+  //   location.href = '../geral/geral.html'
+  // }

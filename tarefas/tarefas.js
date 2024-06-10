@@ -1,3 +1,18 @@
+//BOTÕES DAS ABAS
+um.onclick = function(){
+  location.href = '../home/index.html'
+}
+tres.onclick = function(){
+  location.href = '../financeiro/financeiro.html'
+}
+quatro.onclick = function(){
+  location.href = '../diario/diario.html'
+}
+// cinco.onclick = function(){
+//   location.href = '../geral/geral.html'
+// }
+
+
 /* 
 TAREFAS
 number: id
@@ -47,19 +62,7 @@ function deleteTarefa(idExcluida) {
 }
 
 //TAREFAS
-//BOTÕES DAS ABAS
-um.onclick = function(){
-  location.href = '../home/index.html'
-}
-tres.onclick = function(){
-  location.href = '../financeiro/financeiro.html'
-}
-quatro.onclick = function(){
-  location.href = '../diario/diario.html'
-}
-cinco.onclick = function(){
-  location.href = '../geral/geral.html'
-}
+
 
 /// Cria o gráfico de tarefas por prioridade
 // let dadosGrafico = [0, 0, 0];

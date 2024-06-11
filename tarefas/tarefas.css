@@ -1,17 +1,17 @@
-/* 
+
 @media only screen and (max-device-width: 480px){
   .menu{
-   margin: 0;
+   margin: 0px;
   }
   .principalTarefa{
-   margin: 0;
+   margin: 0px;
   }
   .corpoModal {    
     margin: 35% auto;    
   }
   
    
- } */
+ }
 
 /*CONTEÚDO*/
 .principalTarefa{
@@ -21,7 +21,7 @@
   /* overflow-y: scroll; */
 }
 table {
-    max-width: 850px;
+    max-width: 800px;
     margin: 0 auto;
   }
   

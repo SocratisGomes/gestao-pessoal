@@ -1,12 +1,26 @@
-/* @media only screen and (max-device-width: 480px){
+@media only screen and (max-device-width: 480px){
    .menu{
+      /* flex-direction: column ; */
     margin: 0;
    }
+  
    .grid{
-    margin: 0;
-   }
+   display: grid;
+    grid-template-columns: 300px 300px 300px;
+    grid-template-rows: 50px 250px 250px 500px;
+    grid-template-areas:
+        'titulo titulo titulo'
+        'graficoPrioridades graficoDiario graficoDiario'
+        'calendario graficoPizza notificacoe'
+        'footer footer footer';
+    gap: 10px;
+    margin: 35px 0 auto 10px;
+    background-color: #fff;
+     }
+      
+  
     
-  } */
+  }
 
 /* CONTEUDO HOME */
 

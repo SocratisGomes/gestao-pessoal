@@ -19,16 +19,49 @@
   background-color: #fff;
 }
 table {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tabela, th, td{
+  /* background-color: yellow; */
+  font-weight: 100;
+  padding: 5px 0;
+  vertical-align: middle;
+  text-align: left;  
+  color: #555;
+  /* border-top: 1px solid #DEE2E6; */
+  /* width: 100%; */
+}
+.tabela .selecao{
+  width: 50px;
+}
+.tabela .col2{
+  width: 150px;
+}
+.tabela .col3{
+  width: 150px;
+}
+.tabela .col4{
+  width: 150px;
+}
+.tabela .col5{
+  width: 150px;
+}
+td{ 
+   border-top: 1px solid #DEE2E6; 
+} 
+/* table {
     max-width: 850px;
     margin: 0 auto;
-  }
+  } */
   
   /* .col1 {
     width: 10%;
     background-color: blue;
-  }  */
-  /* .col2 {
-    width: 50px;
+  }  */ 
+  /* thead .col2 {
+    width: 10%;
     background-color: green;
   } 
   .col3 {
@@ -38,20 +71,24 @@ table {
   .col4 {
     width: 50px;
     background-color: yellow;
+  }
+  .col5{
+    width: 50px;
+    background-color: yellow;
   } */
    
-  .modal label {
+  /* .modal label {
     width: 90px;
     display: inline-block;
-  }
+  } */
   
-  /* #campoDescricao,
-  #campoDescricao2 {
-    width: 18rem;
-  }
-   */
+  /* #campoMes,
+  #campoMes2 {
+    width: 120px;
+  } */
+  
   #areaFiltro {
-    max-width: 850px;
+    max-width: 500px;
     margin: 0 auto;
     margin-bottom: 2em;
     display: flex;
@@ -123,39 +160,56 @@ h3 {
   color: #228;
 }
 
-table {
+/* table {
   width: 100%;
   font-family: "Roboto", "Arial", sans-serif;
   color: #212529;
   border-collapse: collapse;
   margin-bottom: 1rem;
-}
+} */
 
-thead, tbody, tfoot {
+/* thead, tbody, tfoot {
   vertical-align: middle;  
-}
+} */
 
-th {
+/* th {
   text-align: left;
   vertical-align: bottom;
   padding: 0.75rem;
   font-weight: 400;  
   /* width: 50px; */
-}
+/* } */
 
-td {
-  text-align: left;
-  color: #555;
-  font-weight: 100;
-  vertical-align: middle;
-  padding: 0.75rem;
-  border-top: 1px solid #DEE2E6;
-  width: 100%;
-}
+
+/* table tr th{
  
-table #col_sel, table .selecao {
+  width: 120px;
+  text-align: left;
+  padding: 10px 0;
+} */
+/* table .col2{
+  width: 30%;
+}
+table .col3{
   width: 10px;
 }
+table .col4{
+  width: 10px;
+}  */
+/* 
+thead{
+  background-color: red;
+}
+tbody{
+  background-color: yellow;
+  width: 100%;
+} */
+
+
+
+/* table #col_sel, table .selecao {
+  width: 10px;
+} */
 
 button.botao {
   cursor: pointer;

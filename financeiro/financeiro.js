@@ -73,7 +73,6 @@ function IniciaBanco(){
     <td class="celula-4">
       ${item.sobra}
     </td>
-    <td></td>
   </tr>
 `;
   })
@@ -111,7 +110,8 @@ function mostraTabela() {
     <td class="celula-4">
       ${item.sobra}
     </td>
-    <td></td>
+    
+
   </tr>
 `;
   });
@@ -200,8 +200,18 @@ function calculoSobra(){
   let despesa = nubank + inter + c6 + invest + dinheiro;
   let result = receita - despesa;
 
-  document.getElementById('campoSobra').value = result  
+ document.getElementById('campoSobra').value = result
 }
+
+// function formataMoeda(){
+//   let formatado = new Intl.NumberFormat('en-Ke',
+//     {
+//         style: 'currency',
+//         currency: 'KSH',
+//     });
+//     return formatado;
+//   }
+
 
 // Confirma a criação da tarefa
 btMTCriar.onclick = function () {
